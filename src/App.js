@@ -1,19 +1,20 @@
 import {Routes, Route} from 'react-router-dom';
 
 import './App.css';
-import Auth from './components/pages/Auth/Auth';
+import Header from './components/elements/Header';
+import Hello from './components/elements/Hello';
+import Login from './components/pages/Auth/Login';
+import Register from './components/pages/Auth/Register';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Пока ничего нет
-        </p>
-      </header>
+      <Header/>
       <Routes>
-          <Route path='/' element={<Auth/>}/>
+        <Route path='/' element={<Hello/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
       </Routes>
     </div>
   );
