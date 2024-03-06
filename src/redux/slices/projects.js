@@ -1,9 +1,13 @@
-import { private_safeEmphasize } from "@mui/system";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../axios';
 
 export const fetchProjects = createAsyncThunk('/projects/fetchProjects', async (params) => {
     const { data } = await axios.get('/project/fetchall', { params })
+    return data
+})
+
+export const createProject = createAsyncThunk('/projects/createProject', async (params) => {
+    const { data } = await axios.post('/project/create', params)
     return data
 })
 

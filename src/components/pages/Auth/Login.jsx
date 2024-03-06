@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import React from 'react';
 import { useForm } from 'react-hook-form'
-import styles from './Auth.css'
+import styles from './Auth.module.css';
 import { fetchAuth, selectIsAuth } from '../../../redux/slices/auth';
 
 
@@ -33,26 +33,26 @@ export default function Login() {
     }
 
     return (
-        <div className="login-page">
+        <div>
             <h1>Вход</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="auth-card">
+                <div className={styles.authContent}>
                     <TextField 
-                        className='inp input-login' 
+                        className={styles.input} 
                         label='Логин' 
                         error={Boolean(errors.login?.message)}
                         helperText = {errors.login?.message}
                         { ... register('login', { required: 'Укажите логин' })}
                     />
                     <TextField 
-                        className='inp input-password'
+                        className={styles.input} 
                         label='Пароль' 
                         type='password'
                         error={Boolean(errors.password?.message)}
                         helperText = {errors.password?.message}
                         { ... register('password', { required: 'Укажите пароль' })}
                     />
-                    <button className="enter-btn" type="submit">Войти</button>
+                    <button className={styles.button} type="submit">Войти</button>
                 </div>
             </form>
         </div>

@@ -1,4 +1,4 @@
-.App-header {
+.header {
     background-color: #ADB5FF;
     min-height: 15vh;
     width: 100vw;
@@ -9,11 +9,11 @@
     color: white;
   }
 
-.Header-buttons{
+.content{
     margin-right: 5vw;
 }
 
-.header-main{
+.main{
     display: flex;
     flex-direction: row;
 }
@@ -25,11 +25,23 @@
     border-radius: 25px;
 }
 
-.btn-logout{
+.buttonLogout{
     background-color: #fca8a8;
+    border-color: #8F8F8F;
+    border-style:solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+    border-radius: 10px;
+    width: fit-content;
+    height: 25pt;
+    font-size: 14pt;
+    margin: 5pt;
+}
+.buttonLogout:hover{
+    background-color: #f58c8c;
 }
 
-.header-btn {
+.button{
     background-color: #ADB5FF;
     border-color: #8F8F8F;
     border-style:solid;
@@ -41,7 +53,7 @@
     font-size: 14pt;
     margin: 5pt;
 }
-.header-btn:hover{
+.button:hover{
     background-color: #98a2ff;
 }
 

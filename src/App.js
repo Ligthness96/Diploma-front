@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import Header from './components/elements/Header';
+import Header from './components/elements/header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Auth/Login';
 import Register from './components/pages/Auth/Register';
@@ -11,12 +11,12 @@ import { selectIsAuth, fetchAuthMe } from './redux/slices/auth';
 
 function App() {
 const dispatch = useDispatch()
-const isAuth = useSelector(selectIsAuth)
 
 React.useEffect(() => {
   dispatch(fetchAuthMe())
 }, [])
 
+const isAuth = useSelector(selectIsAuth)
 
   return (
     <div className="App">

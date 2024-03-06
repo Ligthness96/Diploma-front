@@ -1,4 +1,4 @@
-.project-card{
+.projectsCard:not(hover) {
     background-color: rgb(249, 252, 255);
     margin: 8pt;
     width: 150pt;
@@ -7,7 +7,7 @@
     box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-.project-card:hover{
+.projectsCard:hover{
     background-color: rgb(227, 226, 255);
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
 }

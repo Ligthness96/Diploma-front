@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import addIcon from '../photos/iconAdd.png'
+import joinIcon from '../../photos/iconJoin.png'
 import Typography from '@mui/material/Typography';
-import styles from './project.css'
+import styles from './project.module.css'
 
-export const NewProject = () => {
+export const JoinProject = ({action}) => {
 
   return (
-    <Card className="project-card" onClick={() => {window.alert("создать проект")}}>
+    <Card className={styles.projectsCard} onClick={action}>
       <CardContent>
-        <img className='icon icon-add' src={addIcon} alt="add project" />
+        <img className={styles.icon} src={joinIcon} alt="join project" />
         <Typography variant="h6" component="div" color="#ADB5FF" gutterBottom>
-           Создать новый проект
+           Присоединиться к проекту
         </Typography>
       </CardContent>
     </Card>

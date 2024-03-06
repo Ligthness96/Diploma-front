@@ -1,4 +1,4 @@
-.home-body{
+.body{
     height: 85vh;
     width: 100%;
     display: flex;
@@ -13,7 +13,7 @@
     align-items: flex-start;
 }
 
-.my-projects{
+.myProjects{
     margin-left: 10vw;
     margin-right: 10vw;
     margin-bottom: 10pt;
@@ -21,7 +21,7 @@
     flex-direction: row;
 }
 
-.other-projects{
+.otherProjects{
     margin-left: 10vw;
     margin-right: 10vw;
     margin-top: 10pt;

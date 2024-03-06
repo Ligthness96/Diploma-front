@@ -1,4 +1,4 @@
-.auth-card{
+.authContent{
     margin-top: 4vh;
     display: flex;
     flex-direction: column;
@@ -6,42 +6,26 @@
     justify-content: center;
 }
 
-.inp{
+.input{
     font-size: large;
     height: 60pt;
     width: 230pt;
     margin: 1pt;
 }
 
-.enter-btn {
+.button{
     background-color: #ADB5FF;
     border-color: #8F8F8F;
     border-style:solid;
     border-width: 1px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
     border-radius: 10px;
-    width: 100pt;
-    height: 30pt;
-    font-size: 14pt;
-    margin: 5pt;
-}
-.enter-btn:hover{
-    background-color: #98a2ff;
-}
-
-.register-btn {
-    background-color: #ADB5FF;
-    border-color: #8F8F8F;
-    border-style:solid;
-    border-width: 1px;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
-    border-radius: 10px;
-    width: 165pt;
+    width: 150pt;
     height: 30pt;
     font-size: 14pt;
     margin: 5pt;
 }
 
-.register-btn:hover{
+.button:hover{
     background-color: #98a2ff;
 }
