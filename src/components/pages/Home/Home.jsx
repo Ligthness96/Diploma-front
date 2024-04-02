@@ -29,12 +29,11 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(fetchProjects({userid: window.localStorage.getItem('userid')}))
-    }, [])
+    }, [showCreateProjectForm, showJoinProjectForm])
     
     if (!isAuth) {
         return <Navigate to="/login"/>
     }
-
     return(
         <>
         <JoinProjectForm show={showJoinProjectForm} onClose={hideJPF}/>

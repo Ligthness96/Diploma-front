@@ -5,6 +5,7 @@ import Header from './components/elements/header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Auth/Login';
 import Register from './components/pages/Auth/Register';
+import ProjectMain from './components/pages/ProjectMain/ProjectMain'
 import React from 'react';
 import { selectIsAuth, fetchAuthMe } from './redux/slices/auth';
 
@@ -25,6 +26,7 @@ const isAuth = useSelector(selectIsAuth)
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>  
+        <Route path='/project/main' element={<ProjectMain/>}/>
       </Routes>
     </div>
   );

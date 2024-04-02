@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import styles from '../ProjectForm.module.css'
 import { useForm } from 'react-hook-form'
 import { TextField, Typography } from '@mui/material';
-import { createProject } from "../../../../redux/slices/projects";
 import { useDispatch } from "react-redux";
 import { joinInvite } from "../../../../redux/slices/invites";
 

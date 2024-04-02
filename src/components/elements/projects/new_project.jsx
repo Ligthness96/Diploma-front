@@ -10,7 +10,7 @@ export const NewProject = ({action}) => {
   return (
     <Card className={styles.projectsCard} onClick={action}>
       <CardContent>
-        <img className={styles.icon} src={addIcon} alt="add project" />
+        <img className={styles.icon} src={addIcon} alt="add project" draggable="false"/>
         <Typography variant="h6" component="div" color="#ADB5FF" gutterBottom>
            Создать новый проект
         </Typography>

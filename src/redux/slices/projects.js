@@ -6,17 +6,13 @@ export const fetchProjects = createAsyncThunk('/projects/fetchProjects', async (
     return data
 })
 
-export const createProject = createAsyncThunk('/projects/createProject', async (params) => {
-    const { data } = await axios.post('/project/create', params)
-    return data
-})
-
 const initialState = {
     projects: {
         items: [],
         status: 'loading'
     }
 }
+
 
 const projectsSlice = createSlice({
     name: 'projects',

@@ -10,7 +10,7 @@ export const JoinProject = ({action}) => {
   return (
     <Card className={styles.projectsCard} onClick={action}>
       <CardContent>
-        <img className={styles.icon} src={joinIcon} alt="join project" />
+        <img className={styles.icon} src={joinIcon} alt="join project" draggable="false"/>
         <Typography variant="h6" component="div" color="#ADB5FF" gutterBottom>
            Присоединиться к проекту
         </Typography>
