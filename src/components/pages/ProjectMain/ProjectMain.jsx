@@ -13,7 +13,7 @@ import styles from './ProjectMain.module.css';
 
 import TableTasks from './Table/TableTasks';
 import Participants from './Participants/Participants';
-import Graph from './Graph/Graph';
+import GraphPage from './Graph/Graph';
 
 
 export default function Main() {
@@ -59,7 +59,7 @@ export default function Main() {
                 <div className={styles.content}>
                     <TableTasks show={table}/>
                     <Participants show={participants}/>
-                    <Graph show={graph}/>
+                    <GraphPage show={graph}/>
                 </div>
             </div>
         </>

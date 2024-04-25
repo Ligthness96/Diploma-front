@@ -3,20 +3,33 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './TaskForm.module.css'
 import { useForm } from 'react-hook-form'
-import { getListItemSecondaryActionClassesUtilityClass, TextField, Typography } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { createTask } from "../../../redux/slices/task";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchParticipants } from "../../../redux/slices/participants";
 
 const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
     const dispatch = useDispatch()
     const [date, setDate] = useState(new Date());
     const modalRef = useRef(null)
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
+    const { participants } = useSelector(state => state.participants)
+    const isParticipantLoading = participants.status === 'loading'
+
+    const [executor, setExecutor] = React.useState('');
+
+    const handleChange = (event) => {
+      setExecutor(event.target.value);
+    };
+
+    useEffect(() => {
+        dispatch(fetchParticipants({projectid:  window.localStorage.getItem("projectid")}))
+    }, [])
+
+    const { register, setValue, handleSubmit, reset, formState: { errors } } = useForm({
         defaultValues: {
             projectid: window.localStorage.getItem("projectid"),
             taskname: '',
-            executor: window.localStorage.getItem("userid"),
+            executor: '',
             datestart: '',
             dateend: ''
         },
@@ -27,25 +40,21 @@ const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
         const data = await dispatch(createTask(values))
         if (!data.payload) {
             onClose()
+            reset()
             alert('Не удалось добавить задачу')
         } else {
             onClose()
+            reset()
             alert('Задача добавлена')
         }
     }
 
     const closeModalOnClickOut = (e) => {
-        if (show && e.target && modalRef.current && !modalRef.current.contains(e.target) && onClose) {
+        if (show && e.target && modalRef.current && onClose) {
             onClose()
+            reset()
         }
     }
-
-    useEffect(() => {
-        document.body.addEventListener('mousedown', closeModalOnClickOut)
-        return () => {
-            document.body.removeEventListener('mousedown', closeModalOnClickOut)
-        }
-    }, [closeModalOnClickOut])
 
     if(show) {
         return (
@@ -86,14 +95,33 @@ const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
                                 { ... register('dateend', { required: 'Дата не должна быть пустой' })}
                             />
                         </div>
-                        <TextField
+                        {/* <TextField
                             className={styles.textField} 
                             label='Исполнитель' 
                             error={Boolean(errors.executor?.message)}
                             helperText = {errors.executor?.message}
                             { ... register('executor', { required: 'Название не должно быть пустым' })}
-                        />
-                        <button className={styles.button} type="submit">Добавить</button>
+                        /> */}
+                        <FormControl className={styles.selector}>
+                            <InputLabel id="demo-simple-select-label">Выберите исполнителя</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                label="Выберите исполнителя"
+                                value={executor}
+                                onChange={handleChange}
+                            > 
+                            {participants.items.map((obj, index) => isParticipantLoading 
+                                ? (<></>)
+                                : (<MenuItem onClick={setValue('executor', obj.userid)} value={obj.name}>{obj.name}</MenuItem>)
+                            )}
+                            </Select>
+                        </FormControl>
+                        <div>
+                            <button onClick={closeModalOnClickOut} className={styles.button}>Отменить</button>
+                            <button className={styles.button} type="submit">Добавить</button>
+                        </div>
+                        
                     </div>
                 </form>
             </div>

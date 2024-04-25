@@ -66,3 +66,7 @@
 .button:hover{
     background-color: #98a2ff;
 }
+
+.selector{
+    width: 230pt;
+}
