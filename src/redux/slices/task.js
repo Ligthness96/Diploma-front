@@ -11,6 +11,11 @@ export const editIsComplete = createAsyncThunk('/task/editIsComplete', async (pa
     return data
 })
 
+export const deleteTask = createAsyncThunk('/task/deleteTask', async (params) => {
+    const { data } = await axios.post('/task/delete',  params )
+    return data
+})
+
 const initialState = {
     task: {
         data: null,

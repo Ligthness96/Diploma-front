@@ -13,7 +13,7 @@ export const Project = ({
 
 
   return (
-    <Link to='/project/main' state={{id: projectid}} draggable="false">
+    <Link to='/project/main' state={{id: projectid}} draggable="false" style={{textDecoration: "none"}}>
       <Card className={styles.projectsCard}>
         <CardContent>
           <img className={styles.icon} src={graphIcon} alt="graph" draggable="false"/>

@@ -19,6 +19,7 @@ export default function TableTasks({show}) {
         dispatch(fetchTasks({projectid: window.localStorage.getItem("projectid")}))
     }, [showCreateTaskForm, show])
 
+
     if(show) { 
         return(
             <>
@@ -41,16 +42,6 @@ export default function TableTasks({show}) {
                             iscomplet={obj.iscomplete}
                         />
                     ))}
-                    {/* {[...Array(3)].map(() => (
-                        <Task
-                            key={1}
-                            taskid="{obj.taskid}"
-                            taskname="task one"
-                            executor="sergey"
-                            datestart="2024-01-01"
-                            dateend="2024-01-01"
-                        />
-                    ))} */}
             </div>
             
             <div className={styles.tasksCompleted}>
@@ -70,16 +61,6 @@ export default function TableTasks({show}) {
                             iscomplet={obj.iscomplete}
                         />
                     ))}
-                    {/* {[...Array(4)].map(() => (
-                        <Task
-                            key={0}
-                            taskid="{obj.taskid}"
-                            taskname="task one"
-                            executor="sergey"
-                            datestart="2024-01-01"
-                            dateend="2024-01-01"
-                        />
-                    ))}  */}
             </div>
         </>
         ) 

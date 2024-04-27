@@ -5,6 +5,7 @@ import Graph from 'react-vis-network-graph';
 import styles from "./GraphPage.module.css"
 import { fetchTasks } from '../../../../redux/slices/tasks';
 import { createEdge } from '../../../../redux/slices/edge';
+import { deleteEdge } from '../../../../redux/slices/edge';
 import { fetchEdges } from '../../../../redux/slices/edges';
 
 
@@ -19,8 +20,9 @@ export default function GraphPage({show}) {
 
   const [nodes, setNodes] = useState(null);
   const [edges, setEdges] = useState(null);
-  const [selectedNode, setSelectedNode] = useState(null);
+  const [selectedNode, setSelectedNode] = useState(null)
   const [secondSelectedNode, setSecondSelectedNode] = useState(null);
+  const [selectedEdge, setSelectedEdge] = useState(null);
 
   useEffect(() => {
     dispatch(fetchTasks({projectid: window.localStorage.getItem("projectid")}))
@@ -39,8 +41,7 @@ export default function GraphPage({show}) {
     setEdges(jsonEdges);
   }, [show])  
   useEffect(() => {
-    console.log(selectedNode, secondSelectedNode);
-  }, [selectedNode, secondSelectedNode]);
+  }, [selectedNode, secondSelectedNode, selectedEdge, edges]);
 
   const graph = {
     nodes: nodes,
@@ -52,7 +53,8 @@ export default function GraphPage({show}) {
       hierarchical: false
     },
     edges: {
-      color: "#000000"
+      color: "#000000",
+      length: 200
     },
     nodes: {
       shape: 'box',
@@ -63,7 +65,7 @@ export default function GraphPage({show}) {
         right: 20
       }
     },
-    physics: true
+    physics: false
   };
 
   const handleAddEdge = () => {
@@ -72,8 +74,27 @@ export default function GraphPage({show}) {
       dispatch(createEdge({projectid: window.localStorage.getItem("projectid"), taskid: selectedNode, edgefrom: selectedNode, edgeto: secondSelectedNode}))
       setSelectedNode(null);
       setSecondSelectedNode(null);
+      setSelectedEdge(null)
     }
   }
+  
+  const handleDeleteEdge = () => {
+    if (selectedEdge !== null) {
+      const newEdges = edges.filter(edge => !(edge.from === selectedEdge.from+"" && edge.to ===  selectedEdge.to+""));
+      setEdges(newEdges);
+      dispatch(deleteEdge({edgefrom: selectedEdge.from+"", edgeto: selectedEdge.to+""}))
+      setSelectedNode(null);
+      setSecondSelectedNode(null);
+      setSelectedEdge(null)
+    }
+  }
+
+  const handleAddEdgeCancel = () => {
+    setSelectedNode(null)
+    setSecondSelectedNode(null)
+    setSelectedEdge(null)
+  }
+
   const selectNode = (event) => {
     var node = event.nodes[0]
     
@@ -87,25 +108,52 @@ export default function GraphPage({show}) {
     console.log(selectedNode + "  to  " + secondSelectedNode)
   }
 
+  const selectEdge = (event) => {
+    var selectedEdgeId = event.edges[0]
+    const edgeToDelete = edges.find(edge => edge.id === selectedEdgeId);
+    setSelectedEdge(edgeToDelete)
+  }
   const events = {
     selectNode,
+    selectEdge
   };
   
     if(show) { 
         return(
-            <>
-              <div>
-                  <Graph 
+              <div className={styles.content}>
+                  <Graph
+                    className={styles.graph}
                     graph={graph} 
                     options={options} 
                     events = {events}
-                    style={{ height: "800px", width: "95wv" }} 
                   />
-                  <div>
-                    <button onClick={handleAddEdge}>Добавить ребро</button>
+                  <div className={styles.controlPanel}>
+                    {selectedNode!=null 
+                    ? (
+                      <p>1 узел выбран</p>
+                    )
+                    : (
+                      <p></p>
+                    )}
+                    {secondSelectedNode!=null 
+                    ? (
+                      <p>2 узел выбран</p>
+                    )
+                    : (
+                      <p></p>
+                    )}
+                    {selectedEdge!=null 
+                    ? (
+                      <p>Ребро выбрано</p>
+                    )
+                    : (
+                      <p></p>
+                    )}
+                    <button className={styles.button} onClick={handleAddEdge}>Добавить ребро</button>
+                    <button className={styles.button} onClick={handleDeleteEdge}>Удалить ребро</button>
+                    <button className={styles.button} onClick={handleAddEdgeCancel}>Отменить</button>
                   </div>
               </div>
-            </>
         ) 
     }
 }

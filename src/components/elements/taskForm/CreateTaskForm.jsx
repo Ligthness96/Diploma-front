@@ -45,7 +45,6 @@ const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
         } else {
             onClose()
             reset()
-            alert('Задача добавлена')
         }
     }
 

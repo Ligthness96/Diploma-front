@@ -9,5 +9,23 @@
 .taskContent{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+    width: 38vw;
+}
+
+.button{
+    background-color: #ADB5FF;
+    border-color: #8F8F8F;
+    border-style:solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+    border-radius: 10px;
+    width: 50pt;
+    height: 20pt;
+    font-size: 10pt;
+    margin: 5pt;
+}
+
+.button:hover{
+    background-color: #98a2ff;
 }
