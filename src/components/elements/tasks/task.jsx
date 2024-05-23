@@ -41,9 +41,7 @@ export const Task = ({
         <Card className={styles.taskCard} style={{backgroundColor: !iscomplet ? 'rgb(207, 235, 235)' : 'rgb(207, 235, 216)'}}>
           <CardContent className={styles.taskContent}>
           <div class={styles.title}>
-            <Typography variant="h6" component="div" color="#ADB5FF" gutterBottom>
-              {taskname}
-            </Typography>
+            {taskname}
           </div>
           <div class={styles.controls}>
             <Checkbox defaultChecked={iscomplet ? true : false} onClick={editCheck}></Checkbox>

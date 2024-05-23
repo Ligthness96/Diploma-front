@@ -23,46 +23,48 @@ export default function TableTasks({show}) {
     if(show) { 
         return(
             <>
-                <CreateTaskForm show={showCreateTaskForm} onClose={hideCTF}/>
-                <div className={styles.tasksCurrent}>
-                <div className={styles.tasksHeader}>
-                    <Typography variant='h4'>Текущие задачи</Typography>
-                    <button onClick={showCTF} className={styles.button}>Добавить</button>
+                <div className={styles.content}>
+                    <CreateTaskForm show={showCreateTaskForm} onClose={hideCTF}/>
+                    <div className={styles.tasksCurrent}>
+                    <div className={styles.tasksHeader}>
+                        <Typography variant='h5' className={styles.tiitle}>Текущие</Typography>
+                        <button onClick={showCTF} className={styles.button}>Добавить</button>
+                    </div>
+                        {tasks.items.map((obj, index) => 
+                        isTasksLoading || obj.iscomplete === true ? (
+                            <>
+                            </>
+                        ) : (
+                            <Task
+                                key={index}
+                                taskid={obj.taskid}
+                                taskname={obj.taskname}
+                                executor={obj.executor}
+                                iscomplet={obj.iscomplete}
+                            />
+                        ))}
+                    </div>
+                
+                    <div className={styles.tasksCompleted}>
+                        <div className={styles.tasksHeader}>
+                            <Typography variant='h5' className={styles.tiitle}>Выполненные</Typography>
+                        </div>
+                            {tasks.items.map((obj, index) => 
+                            isTasksLoading || obj.iscomplete === false ? (
+                                <>
+                                </>
+                            ) : (
+                                <Task
+                                    key={index}
+                                    taskid={obj.taskid}
+                                    taskname={obj.taskname}
+                                    executor={obj.executor}
+                                    iscomplet={obj.iscomplete}
+                                />
+                            ))}
+                    </div>
                 </div>
-                    {tasks.items.map((obj, index) => 
-                    isTasksLoading || obj.iscomplete === true ? (
-                        <>
-                        </>
-                    ) : (
-                        <Task
-                            key={index}
-                            taskid={obj.taskid}
-                            taskname={obj.taskname}
-                            executor={obj.executor}
-                            iscomplet={obj.iscomplete}
-                        />
-                    ))}
-            </div>
-            
-            <div className={styles.tasksCompleted}>
-                <div className={styles.tasksHeader}>
-                    <Typography variant='h4'>Выполненные задачи</Typography>
-                </div>
-                    {tasks.items.map((obj, index) => 
-                    isTasksLoading || obj.iscomplete === false ? (
-                        <>
-                        </>
-                    ) : (
-                        <Task
-                            key={index}
-                            taskid={obj.taskid}
-                            taskname={obj.taskname}
-                            executor={obj.executor}
-                            iscomplet={obj.iscomplete}
-                        />
-                    ))}
-            </div>
-        </>
+            </>
         ) 
     }
 }

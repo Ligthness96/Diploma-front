@@ -18,6 +18,8 @@ export default function GraphPage({show}) {
   const { edgesss } = useSelector(state => state.edgesss)
   const isEdgesLoaded = tasks.status === 'loaded'
 
+  const [physic, setPhysic] = useState(true);
+
   const [nodes, setNodes] = useState(null);
   const [edges, setEdges] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null)
@@ -54,7 +56,7 @@ export default function GraphPage({show}) {
     },
     edges: {
       color: "#000000",
-      length: 200
+      length: 250
     },
     nodes: {
       shape: 'box',
@@ -65,7 +67,7 @@ export default function GraphPage({show}) {
         right: 20
       }
     },
-    physics: false
+    physics: physic
   };
 
   const handleAddEdge = () => {
@@ -152,6 +154,14 @@ export default function GraphPage({show}) {
                     <button className={styles.button} onClick={handleAddEdge}>Добавить ребро</button>
                     <button className={styles.button} onClick={handleDeleteEdge}>Удалить ребро</button>
                     <button className={styles.button} onClick={handleAddEdgeCancel}>Отменить</button>
+                    <button className={styles.button} onClick={()=>{setPhysic(value => !value)}}>Физика</button>
+                    {physic 
+                    ? (
+                      <p>Включена</p>
+                    )
+                    : (
+                      <p>выключена</p>
+                    )}
                   </div>
               </div>
         ) 
