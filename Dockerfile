@@ -25,8 +25,4 @@ COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 
 # Команда для запуска Nginx при старте контейнера
-<<<<<<< HEAD
 CMD ["nginx", "-g", "daemon off;"]
-=======
-CMD ["nginx", "-g", "daemon off;"]
->>>>>>> 3458c227b5700624ba6b0cd045e40758b01111a5
