@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: getenv('BACK_URL')
+    baseURL: https://disanias-diploma-back-52bc.twc1.net
 })
 
 instance.interceptors.request.use((config) => {
