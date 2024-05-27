@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 #axios
-/src/axios.js
+./src/axios.js
