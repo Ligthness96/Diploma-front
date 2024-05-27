@@ -1,6 +1,6 @@
 .header {
     background-color: #ADB5FF;
-    min-height: 15vh;
+    height: 15vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -55,5 +55,67 @@
 }
 .button:hover{
     background-color: #98a2ff;
+}
+
+@media (max-width: 800px) {
+    .header {
+        background-color: #ADB5FF;
+        height: 8vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        color: white;
+      }
+    
+    .content{
+        margin-right: 5vw;
+    }
+    
+    .main{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .avatar{
+        margin-right: 15pt;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        margin: 5pt;
+    }
+    
+    .buttonLogout{
+        background-color: #fca8a8;
+        border-color: #8F8F8F;
+        border-style:solid;
+        border-width: 1px;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+        border-radius: 10px;
+        width: fit-content;
+        height: 25pt;
+        font-size: 14pt;
+        margin: 5pt;
+    }
+    .buttonLogout:hover{
+        background-color: #f58c8c;
+    }
+    
+    .button{
+        background-color: #ADB5FF;
+        border-color: #8F8F8F;
+        border-style:solid;
+        border-width: 1px;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+        border-radius: 10px;
+        width: fit-content;
+        height: 25pt;
+        font-size: 14pt;
+        margin: 5pt;
+    }
+    .button:hover{
+        background-color: #98a2ff;
+    }  
 }
 

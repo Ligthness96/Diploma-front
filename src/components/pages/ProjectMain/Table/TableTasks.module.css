@@ -1,4 +1,4 @@
-.tasksCurrent{
+/* .tasksCurrent{
     display: flex;
     flex-direction: column;
     margin-left: 30pt;
@@ -77,5 +77,87 @@
 
     .title{
         font-size: 12pt;
+    }
+} */
+.desktopView {
+    display: none;
+}
+
+.tasksHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.tasksColumn {
+    padding: 10px;
+    width: 41vw;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: #ADB5FF;
+    border-color: #8F8F8F;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+    border-radius: 10px;
+    width: fit-content;
+    height: 25pt;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    background-color: #98a2ff;
+}
+
+.mobileView {
+    display: block;
+}
+
+@media (min-width: 801px) {
+    .desktopView {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mobileView {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .mobileView {
+        display: block;
+        width: 100vw;
+        height: 78vh;
+    }
+    
+    .tasksCurrentMobile, .tasksCompletedMobile {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        height: 78vh;
+    }
+    .tasksHeaderMobile{
+        width: 60vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0px 20px 20vw;
+    }
+    
+    .title {
+        font-size: 16pt;
+    }
+    
+    .button {
+        width: 100px;
+        height: 20pt;
+        font-size: 12pt;
+        padding: 5px;
     }
 }

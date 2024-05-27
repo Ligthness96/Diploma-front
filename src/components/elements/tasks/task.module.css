@@ -33,15 +33,26 @@
 @media (max-width: 800px){
     .taskCard:not(hover){
         background-color: rgb(207, 235, 235);
-        height: 50pt;
-        width: 100%;
-        border-radius: 25px;
+        height: 45pt;
+        width: 90vw;
+        border-radius: 15px;
+        margin: 5pt;
+        padding: 0;
     }
     
     .taskContent{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-left: 10px;
+        width: 82vw;
+        padding: 0;
+    }
+    .controls{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        top: 0; 
     }
     
     .button{
@@ -54,7 +65,7 @@
         width: 50pt;
         height: 20pt;
         font-size: 10pt;
-        margin: 5pt;
+        /* margin: 5pt; */
     }
     
     .button:hover{
@@ -62,5 +73,6 @@
     } 
     .title{
         color: #98a2ff;
+        font-size: 10pt;
     }
 }

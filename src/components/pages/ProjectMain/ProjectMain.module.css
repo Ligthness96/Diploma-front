@@ -1,4 +1,4 @@
-.body{
+/* .body{
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -132,6 +132,138 @@
     }
     
     .calendar{
+        background-color: white;
+        color: #000;
+        background: #98a2ff;
+    }
+} */
+.body {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 80vh;
+}
+
+.nav {
+    background-color: #d8dbfa;
+    display: inline-block;
+    width: 100px;
+    border-radius: 15px;
+}
+
+.content {
+    display: flex;
+    width: 100vw;
+    margin-left: 5px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.icon {
+    margin-top: 20pt;
+    width: 75px;
+    height: 75px;
+}
+
+.icon:hover {
+    background-color: #c2c6f0;
+    border-radius: 15px;
+}
+
+.button {
+    background-color: #ADB5FF;
+    border-color: #8F8F8F;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    width: fit-content;
+    height: 25pt;
+    font-size: 14pt;
+    margin-left: 20pt;
+}
+
+.button:hover {
+    background-color: #98a2ff;
+}
+
+.calendar {
+    background-color: white;
+    color: #000;
+    background: #98a2ff;
+}
+
+@media (max-width: 800px) {
+    .body {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        height: 78vh;
+    }
+
+    .nav {
+        background-color: #d8dbfa;
+        width: 100vw;
+        height: 10vh;
+        position: fixed;
+        z-index: 10;
+        bottom: 0;
+    }
+
+    .content {
+        display: flex;
+        width: 100vw;
+        height: 78vh;
+        flex-direction: row;
+        justify-content: center;
+        overflow-y: auto;
+        
+    }
+
+    .navContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        margin: 0 20px 30px 20px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .icon:hover {
+        background-color: #c2c6f0;
+        border-radius: 15px;
+    }
+
+    .button {
+        background-color: #ADB5FF;
+        border-color: #8F8F8F;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+        border-radius: 10px;
+        width: fit-content;
+        height: 25pt;
+        font-size: 14pt;
+        margin-left: 20pt;
+    }
+
+    .button:hover {
+        background-color: #98a2ff;
+    }
+
+    .calendar {
         background-color: white;
         color: #000;
         background: #98a2ff;
