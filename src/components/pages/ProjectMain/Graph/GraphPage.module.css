@@ -87,6 +87,8 @@
   
   @media (max-width: 800px) {
     .controlPanel {
+      display: none;
+      bottom: 86vh;
       position: fixed;
       top: 8vh;
       width: 100%;
