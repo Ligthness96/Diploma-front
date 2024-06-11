@@ -54,7 +54,7 @@ const InviteForm = ({show, onConfirm, onCancel, onClose}) => {
         return (
             <div className={styles.modalBackdrop}>
                 <div ref={modalRef} className={styles.modalContent}>
-                    <Typography variant="h3" className={styles.text}>
+                    <Typography variant="h4" className={styles.text}>
                         Новое приглашение
                     </Typography>
                     <TextField
@@ -67,7 +67,7 @@ const InviteForm = ({show, onConfirm, onCancel, onClose}) => {
                             endAdornment: (
                               <InputAdornment position="end">
                                     <CopyToClipboard onCopy={onCopy} text={code}>
-                                        <Button variant="outlined">{copied ? <span style={{color: 'green'}}>Скопировано!</span> : <span style={{color: 'blue'}}>Скопировать</span>}</Button>
+                                        <Button style={{width: 90}} variant="outlined">{copied ? <span style={{color: 'green', fontSize: 10}}>Скопировано!</span> : <span style={{color: 'blue', fontSize: 10}}>Скопировать</span>}</Button>
                                     </CopyToClipboard>
                               </InputAdornment>
                             ),

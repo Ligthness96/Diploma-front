@@ -141,6 +141,7 @@ export default function TableTasks({ show }) {
                     </div>
                 </div>
                 <div className={styles.mobileView}>
+                    <CreateTaskForm show={showCreateTaskForm} onClose={hideCTF} />
                     <Slider {...settings}>
                         <div className={styles.tasksCurrentMobile}>
                             <div className={styles.tasksHeaderMobile}>

@@ -46,7 +46,7 @@ const JoinProjectForm = ({show, onConfirm, onCancel, onClose}) => {
             <div className={styles.modalBackdrop}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div ref={modalRef} className={styles.modalContent}>
-                        <Typography variant="h4" className={styles.text}>
+                        <Typography variant="h5" className={styles.text}>
                             Присоединиться к проекту
                         </Typography>
                         <TextField

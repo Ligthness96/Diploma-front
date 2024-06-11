@@ -60,4 +60,82 @@
     background-color: #98a2ff;
 }
 
+@media (max-width: 800px){
+
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .adminCard:not(hover){
+        display: flex;
+        align-items: center;
+        justify-content:left;
+        background-color: rgb(207, 245, 245);
+        margin-top: 10pt;
+        border-radius: 15pt;
+        padding-left: 5pt;
+        height: 30pt;
+        width: 90vw;
+    }
+    
+    .adminTitle:not(hover){
+        color:#98a2ff ;
+        margin-left: 15pt;
+        margin-right: 15pt;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    .usersText:not(hover){
+        font-size: 18px;
+        font-weight: 400;
+        color: #7b91b3;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .participantsCard:not(hover){
+        display: flex;
+        flex-direction: column;
+        justify-content:left;
+        align-items: flex-start;
+        background-color: rgb(207, 245, 245);
+        border-radius: 15pt;
+        height: fit-content;
+        width: 90vw;
+        margin-top: 10pt;
+        padding-left: 5pt;
+        overflow-y: auto;
+    }
+    
+    .participantsCardHeader{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .participantsTitle:not(hover){
+        color:#98a2ff;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .button{
+        background-color: #ADB5FF;
+        border-color: #8F8F8F;
+        border-style:solid;
+        border-width: 1px;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+        border-radius: 10px;
+        width: fit-content;
+        height: 20pt;
+        font-size: 14pt;
+        margin: 10pt;
+    }
+    .button:hover{
+        background-color: #98a2ff;
+    }
+}
 

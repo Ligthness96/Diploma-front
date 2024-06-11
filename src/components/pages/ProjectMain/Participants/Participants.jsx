@@ -28,7 +28,7 @@ export default function Participants({show, pr}) {
                 {participants.items.map((obj, index) => isParticipantLoading || !obj.admin 
                 ? (<></>) 
                 : (<>
-                        <Typography style={{color: "#7b91b3"}} variant="h2">{obj.name}</Typography>
+                        <Typography className={styles.usersText} variant="h2">{obj.name}</Typography>
                     </>
                 ))}
             </Card> 
@@ -42,7 +42,7 @@ export default function Participants({show, pr}) {
                 <Divider className='divider' orientation="horizontal" variant="middle" flexItem/>
                 {participants.items.map((obj, index) => isParticipantLoading || obj.admin 
                 ? (<></>) 
-                : (<Typography style={{color: "#7b91b3", marginLeft: '40pt'}} variant="h2">
+                : (<Typography className={styles.usersText} variant="h2">
                         {obj.name}
                     </Typography>
                 ))}

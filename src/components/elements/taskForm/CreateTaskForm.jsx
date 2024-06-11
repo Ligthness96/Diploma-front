@@ -60,7 +60,7 @@ const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
             <div className={styles.modalBackdrop}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div ref={modalRef} className={styles.modalContent}>
-                        <Typography variant="h3" className={styles.text}>
+                        <Typography variant="h4" className={styles.text}>
                             Новая задача
                         </Typography>
                         <TextField
@@ -116,7 +116,7 @@ const CreateTaskForm = ({show, onConfirm, onCancel, onClose}) => {
                             )}
                             </Select>
                         </FormControl>
-                        <div>
+                        <div className={styles.buttonsDiv}>
                             <button onClick={closeModalOnClickOut} className={styles.button}>Отменить</button>
                             <button className={styles.button} type="submit">Добавить</button>
                         </div>
