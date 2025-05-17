@@ -44,7 +44,7 @@ const CreateProjectForm = ({show, onConfirm, onCancel, onClose}) => {
     if(show) {
         return (
             <div className={styles.modalBackdrop}>
-                <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     <div ref={modalRef} className={styles.modalContent}>
                         <Typography variant="h4" className={styles.text}>
                             Новый проект
