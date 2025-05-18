@@ -40,10 +40,10 @@ export const Task = ({
     return (
         <Card className={styles.taskCard} style={{backgroundColor: !iscomplet ? 'rgb(207, 235, 235)' : 'rgb(207, 235, 216)'}}>
           <CardContent className={styles.taskContent}>
-          <div class={styles.title}>
+          <div className={styles.title}>
             {taskname}
           </div>
-          <div class={styles.controls}>
+          <div className={styles.controls}>
             <Checkbox defaultChecked={iscomplet ? true : false} onClick={editCheck}></Checkbox>
             <button className={styles.button} onClick={handleDeleteTask}>Удалить</button>
           </div>
