@@ -61,8 +61,6 @@ const InviteForm = ({show, onConfirm, onCancel, onClose}) => {
                         className={styles.textField} 
                         value={code}
                         label='Код приглашения' 
-                        foc
-                        contentEditable='false'
                         InputProps={{
                             endAdornment: (
                               <InputAdornment position="end">
